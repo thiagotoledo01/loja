@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="logofavicon.png">
+    <title>Login - Futsal Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ribeye&family=WDXL+Lubrifont+TC&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #dadada;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: red;
+            padding: 10px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .top-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .top-links a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        
+        h1 {
+            font-family: 'WDXL Lubrifont TC', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #1e90ff;
+            outline: none;
+        }
+        
+        .btn-login {
+            background-color: #d40000;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-login:hover {
+            background-color: #b30000;
+        }
+        
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .forgot-password a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        .cadastro-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .cadastro-link a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        
+        .cadastro-link a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .options {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-links">
+            <a href="index.html">Home</a>
+            <a href="ajuda.html">Ajuda</a>
+            <a href="cadastro.html">Cadastro</a>
+        </div>
+        
+        <nav>
+            <img src="logo.png" id="logoloja" width="200px" alt="Futsal Shop Logo">
+        </nav>
+    </header>
+    
+    <h1>ACESSAR CONTA</h1>
+    
+    <div class="container">
+        <form id="form-login">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            
+            <div class="options">
+                <div class="remember">
+                    <input type="checkbox" id="lembrar">
+                    <label for="lembrar">Lembrar-me</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Esqueci a senha</a>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+        
+        <div class="cadastro-link">
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Futsal Shop &copy; 2023 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

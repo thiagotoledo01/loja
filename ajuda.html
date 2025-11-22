@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="logofavicon.png">
+    <title>Ajuda - Futsal Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ribeye&family=WDXL+Lubrifont+TC&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #dadada;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: red;
+            padding: 10px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .top-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .top-links a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        
+        h1 {
+            font-family: 'WDXL Lubrifont TC', sans-serif;
+            font-size: 40px;
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .faq-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #d40000;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .contact-list a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+
+        .tabela-horarios {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tabela-horarios th,
+        .tabela-horarios td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .tabela-horarios th {
+            background-color: #d40000;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tabela-horarios tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .tabela-horarios tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .form-contato {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-enviar {
+            background-color: #d40000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .btn-enviar:hover {
+            background-color: #b30000;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .faq-section, .contact-info {
+                padding: 20px;
+            }
+        }
+        
+        @media print {
+            header, footer, .top-links, .btn-enviar {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .faq-section, .contact-info {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-links">
+            <a href="index.html">Home</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="login.html">Login</a>
+        </div>
+        
+        <nav>
+            <img src="logo.png" id="logoloja" width="200px" alt="Futsal Shop Logo">
+        </nav>
+    </header>
+    
+    <h1>CENTRAL DE AJUDA</h1>
+    
+    <div class="container">
+        <div class="faq-section">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Como faço para comprar?</div>
+                <div class="faq-answer">
+                    Navegue pelos produtos, clique em "Comprar" e siga o processo de checkout. Você precisa estar logado para finalizar a compra.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Quais são as formas de pagamento?</div>
+                <div class="faq-answer">
+                    Aceitamos cartão de crédito, débito, PIX e boleto bancário.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Qual o prazo de entrega?</div>
+                <div class="faq-answer">
+                    O prazo varia de 3 a 10 dias úteis, dependendo da sua localização.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Como faço troca ou devolução?</div>
+                <div class="faq-answer">
+                    Você tem 30 dias para solicitar troca ou devolução. Entre em contato conosco pelo formulário abaixo.
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h2>Horários de Atendimento</h2>
+            <table class="tabela-horarios">
+                <thead>
+                    <tr>
+                        <th>Dia da Semana</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda a Sexta</td>
+                        <td>9h às 18h</td>
+                    </tr>
+                    <tr>
+                        <td>Sábado</td>
+                        <td>9h às 13h</td>
+                    </tr>
+                    <tr>
+                        <td>Domingo</td>
+                        <td>Fechado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="contact-info">
+            <h2>Fale Conosco</h2>
+            <ul class="contact-list">
+                <li>📞Telefone: <a href="tel:+5519983316009">(19) 98331-6009</a></li>
+                <li>📲WhatsApp: <a href="https://wa.me/5519983316009">(19) 98331-6009</a></li>
+                <li>📩Email: <a href="mailto:ajuda@futsalshop.com.br">ajuda@futsalshop.com.br</a></li>
+                <li>📍Endereço: Rua dos Esportes, 123 - Centro</li>
+            </ul>
+
+            <div class="form-contato">
+                <h3>Envie sua Mensagem</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <select id="assunto" name="assunto">
+                            <option value="duvida">Dúvida sobre produto</option>
+                            <option value="troca">Troca ou devolução</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Futsal Shop &copy; 2023 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
