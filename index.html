@@ -5,458 +5,356 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="logofavicon.png">
     <title>Futsal Shop</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ribeye&family=WDXL+Lubrifont+TC&display=swap');
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            background-color: #dadada;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        header {
-            background-color: red;
-            padding: 8px 4%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            order: 1;
-        }
-        
-        .logo-container img {
-            max-width: 180px;
-            height: auto;
-        }
-        
-        .top-links {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            order: 2;
-        }
-        
-        .top-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            padding: 4px 8px;
-        }
-        
-        .top-links a:hover {
-            text-decoration: underline;
-        }
-        
-        .search-container {
-            display: flex;
-            order: 3;
-            margin: 5px 0;
-        }
-        
-        .pesquisas {
-            width: 100%;
-            height: 35px;
-            font-size: 14px;
-            padding: 5px 12px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            flex-grow: 1;
-        }
-        
-        .btn-pesquisa {
-            background-color: #1e90ff;
-            height: 35px;
-            width: 45px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            transition: background-color 0.3s;
-            flex-shrink: 0;
-        }
-        
-        .btn-pesquisa:hover {
-            background-color: #0077e6;
-        }
-        
-        .nav-categorias {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin: 5px 0;
-            flex-wrap: wrap;
-            order: 4;
-        }
-        
-        .nav-categorias a {
-            color: white;
-            text-decoration: none;
-            padding: 5px 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            font-size: 12px;
-            white-space: nowrap;
-        }
-        
-        .nav-categorias a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        h1 {
-            font-family: 'WDXL Lubrifont TC', sans-serif;
-            font-size: clamp(1.5rem, 6vw, 2.5rem);
-            text-align: center;
-            margin: 15px 0;
-            color: #333;
-            padding: 0 15px;
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, red, #1e90ff);
-            margin: 15px auto;
-            width: min(90%, 500px);
-        }
-        
-        .banner {
-            background: linear-gradient(135deg, red, #1e90ff);
-            color: white;
-            text-align: center;
-            padding: 20px 15px;
-            margin: 15px 0;
-        }
-        
-        .banner h2 {
-            font-size: clamp(1.3rem, 5vw, 2rem);
-            margin-bottom: 10px;
-        }
-        
-        .banner p {
-            font-size: clamp(0.9rem, 3vw, 1.1rem);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        section {
-            max-width: min(1200px, 98%);
-            margin: 15px auto;
-            padding: 12px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-            scroll-margin-top: 80px;
-        }
-        
-        h2 {
-            color: red;
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
-            margin-bottom: 12px;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 6px;
-        }
-        
-        .produtos-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .produto {
-            flex: 1 1 min(140px, 100%);
-            max-width: min(160px, 100%);
-            background: #f9f9f9;
-            border-radius: 6px;
-            padding: 8px;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .produto:hover {
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            transform: scale(1.02);
-        }
-        
-        .produto img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            object-fit: cover;
-            aspect-ratio: 1/1;
-        }
-        
-        .produto h3 {
-            margin: 6px 0;
-            color: #333;
-            font-size: clamp(0.85rem, 3vw, 1rem);
-            min-height: 2em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .produto p {
-            margin: 3px 0;
-            font-size: clamp(0.75rem, 2.5vw, 0.85rem);
-            flex-grow: 1;
-        }
-        
-        .preco {
-            font-size: clamp(0.9rem, 3vw, 1.1rem);
-            color: #1e90ff;
-            font-weight: bold;
-            margin: 6px 0;
-        }
-        
-        .btn-comprar {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: auto;
-            transition: all 0.3s ease;
-            font-size: clamp(0.75rem, 2.5vw, 0.85rem);
-            width: 100%;
-        }
-        
-        .btn-comprar:hover {
-            background-color: #b30000;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            margin-top: auto;
-            font-size: 13px;
-        }
-        
-        footer a {
-            color: #1e90ff;
-            text-decoration: none;
-            font-size: 13px;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (min-width: 768px) {
-            header {
-                padding: 10px 5%;
-            }
-            
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;
-                gap: 12px;
-            }
-            
-            .logo-container {
-                order: 1;
-                justify-content: flex-start;
-            }
-            
-            .logo-container img {
-                max-width: 220px;
-            }
-            
-            .top-links {
-                order: 2;
-                justify-content: center;
-                gap: 15px;
-            }
-            
-            .top-links a {
-                font-size: 15px;
-                padding: 5px 10px;
-            }
-            
-            .search-container {
-                order: 3;
-                flex-grow: 1;
-                max-width: 350px;
-                min-width: 180px;
-                margin: 0;
-            }
-            
-            .nav-categorias {
-                order: 4;
-                width: 100%;
-                margin: 5px 0 0 0;
-                gap: 12px;
-            }
-            
-            .nav-categorias a {
-                font-size: 13px;
-                padding: 6px 12px;
-            }
-            
-            .produto {
-                flex: 1 1 min(180px, 100%);
-                max-width: min(220px, 100%);
-                padding: 10px;
-            }
-            
-            section {
-                padding: 15px;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .produto {
-                flex: 1 1 min(220px, 100%);
-                max-width: min(280px, 100%);
-                padding: 12px;
-            }
-            
-            h1 {
-                font-size: clamp(1.8rem, 4vw, 2.8rem);
-                margin: 20px 0;
-            }
-            
-            .banner {
-                padding: 30px 20px;
-                margin: 20px 0;
-            }
-        }
-    </style>
+
+<style>
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:#dadada;
+  font-family:Arial, sans-serif;
+  line-height:1.6;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+header{
+  background:red;
+  padding:10px 4%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+nav{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+/* LOGO */
+.logo-container img{
+  width:160px;
+  height:auto;
+}
+
+/* LINKS DO TOPO */
+.top-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.top-links a{
+  color:white;
+  font-size:14px;
+  padding:4px 8px;
+  text-decoration:none;
+}
+
+/* PESQUISA */
+.search-container{
+  display:flex;
+  width:100%;
+  max-width:420px;
+}
+.pesquisas{
+  flex:1;
+  padding:8px 10px;
+  border:none;
+  border-radius:4px 0 0 4px;
+}
+.btn-pesquisa{
+  background:#1e90ff;
+  border:none;
+  width:45px;
+  border-radius:0 4px 4px 0;
+  color:white;
+  cursor:pointer;
+}
+
+/* CATEGORIAS */
+.nav-categorias{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.nav-categorias a{
+  background:rgba(255,255,255,0.3);
+  color:white;
+  padding:5px 10px;
+  border-radius:12px;
+  font-size:13px;
+}
+
+/* BANNER */
+.banner{
+  background:linear-gradient(135deg, red, #1e90ff);
+  text-align:center;
+  padding:25px 15px;
+  color:white;
+}
+.banner h2{
+  font-size:26px;
+  margin-bottom:6px;
+}
+
+/* TÍTULOS */
+h1{
+  text-align:center;
+  margin:20px 0;
+  font-size:28px;
+}
+hr{
+  border:0;
+  height:1px;
+  width:90%;
+  max-width:500px;
+  margin:0 auto 20px;
+  background:linear-gradient(to right, red, #1e90ff);
+}
+
+/* SEÇÕES */
+section{
+  background:#fff;
+  max-width:1200px;
+  width:95%;
+  margin:20px auto;
+  padding:16px;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+section h2{
+  text-align:center;
+  color:red;
+  margin-bottom:16px;
+  font-size:20px;
+}
+
+/* PRODUTOS — GRID PERFEITO NO MOBILE */
+.produtos-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  gap:14px;
+  justify-items:center;
+}
+
+/* CARD DO PRODUTO */
+.produto{
+  background:#f9f9f9;
+  padding:10px;
+  border-radius:8px;
+  width:100%;
+  max-width:200px;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  transition:0.2s;
+}
+.produto img{
+  width:100%;
+  border-radius:6px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+.produto:hover{
+  transform:scale(1.02);
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.produto h3{
+  font-size:16px;
+  margin:8px 0;
+}
+.produto p{
+  font-size:14px;
+}
+.preco{
+  color:#1e90ff;
+  font-weight:bold;
+  margin:6px 0;
+}
+.btn-comprar{
+  background:red;
+  color:white;
+  border:none;
+  padding:8px;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:auto;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  background:#333;
+  color:white;
+  padding:12px;
+  margin-top:auto;
+  font-size:14px;
+}
+footer a{color:#1e90ff;text-decoration:none;}
+
+/* ----------- TABLET (≥ 768px) ----------- */
+@media (min-width:768px){
+  nav{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+  }
+
+  .logo-container img{width:200px;}
+
+  .search-container{
+    order:3;
+    min-width:260px;
+  }
+
+  .nav-categorias{
+    width:100%;
+  }
+
+  .produtos-container{
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* ----------- DESKTOP (≥ 1024px) ----------- */
+@media (min-width:1024px){
+  .produtos-container{
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+  }
+  .produto{
+    max-width:260px;
+  }
+  .banner{padding:40px;}
+}
+</style>
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="logo.png" alt="Futsal Shop Logo">
-            </div>
-            <div class="top-links">
-                <a href="ajuda.html">Ajuda</a>
-                <a href="cadastro.html">Cadastro</a>
-                <a href="login.html">Login</a>
-            </div>
-            <div class="search-container">
-                <input type="text" name="pesquisa" class="pesquisas" placeholder="Buscar produtos">
-                <button class="btn-pesquisa">🔍</button>
-            </div>
-            <div class="nav-categorias">
-                <a href="#chuteiras">Chuteiras</a>
-                <a href="#meias">Meias</a>
-                <a href="#acessorios">Acessórios</a>
-            </div>
-        </nav>
-    </header>
-    
-    <div class="banner">
-        <h2>BEM-VINDO À FUTSAL SHOP</h2>
-        <p>Os melhores equipamentos de futsal!</p>
+
+<!-- HEADER -->
+<header>
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Futsal Shop Logo">
+        </div>
+
+        <div class="top-links">
+            <a href="ajuda.html">Ajuda</a>
+            <a href="cadastro.html">Cadastro</a>
+            <a href="login.html">Login</a>
+        </div>
+
+        <div class="search-container">
+            <input type="text" name="pesquisa" class="pesquisas" placeholder="Buscar produtos">
+            <button class="btn-pesquisa">🔍</button>
+        </div>
+
+        <div class="nav-categorias">
+            <a href="#chuteiras">Chuteiras</a>
+            <a href="#meias">Meias</a>
+            <a href="#acessorios">Acessórios</a>
+        </div>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="banner">
+    <h2>BEM-VINDO À FUTSAL SHOP</h2>
+    <p>Os melhores equipamentos de futsal!</p>
+</div>
+
+<h1>PRODUTOS EM DESTAQUE</h1>
+<hr>
+
+<!-- CHUTEIRAS -->
+<section id="chuteiras">
+    <h2>Chuteiras</h2>
+    <div class="produtos-container">
+
+        <div class="produto">
+            <img src="equipamentos/chuadidas.webp" alt="Chuteira Futsal Profissional">
+            <h3>Chuteira Adidas</h3>
+            <p>Alta performance</p>
+            <p class="preco">R$ 199,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+
+        <div class="produto">
+            <img src="equipamentos/chunike.jpg" alt="Chuteira Futsal Society">
+            <h3>Chuteira Nike</h3>
+            <p>Melhor controle</p>
+            <p class="preco">R$ 249,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+
+        <div class="produto">
+            <img src="equipamentos/chujoma.webp" alt="Chuteira Futsal">
+            <h3>Chuteira Joma</h3>
+            <p>Material premium</p>
+            <p class="preco">R$ 399,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+
     </div>
-    
-    <h1>PRODUTOS EM DESTAQUE</h1>
-    <hr>
-    
-    <section id="chuteiras">
-        <h2>Chuteiras</h2>
-        <div class="produtos-container">
-            <div class="produto">
-                <img src="equipamentos/chuadidas.webp" alt="Chuteira Futsal Profissional">
-                <h3>Chuteira Adidas</h3>
-                <p>Alta performance</p>
-                <p class="preco">R$ 199,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
-            <div class="produto">
-                <img src="equipamentos/chunike.jpg" alt="Chuteira Futsal Society">
-                <h3>Chuteira Nike</h3>
-                <p>Melhor controle</p>
-                <p class="preco">R$ 249,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
-            <div class="produto">
-                <img src="equipamentos/chujoma.webp" alt="Chuteira Futsal">
-                <h3>Chuteira Joma</h3>
-                <p>Material premium</p>
-                <p class="preco">R$ 399,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
+</section>
+
+<!-- MEIAS -->
+<section id="meias">
+    <h2>Meias</h2>
+    <div class="produtos-container">
+
+        <div class="produto">
+            <img src="equipamentos/meia1.webp" alt="Meia Cano Longo">
+            <h3>Meia Cano Longo</h3>
+            <p>Proteção e conforto</p>
+            <p class="preco">R$ 49,90</p>
+            <button class="btn-comprar">Comprar</button>
         </div>
-    </section>
-    
-    <section id="meias">
-        <h2>Meias</h2>
-        <div class="produtos-container">
-            <div class="produto">
-                <img src="equipamentos/meia1.webp" alt="Meia Cano Longo">
-                <h3>Meia Cano Longo</h3>
-                <p>Proteção e conforto</p>
-                <p class="preco">R$ 49,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
-            <div class="produto">
-                <img src="equipamentos/meia2.webp" alt="Meia Cano Médio">
-                <h3>Meia Cano Médio</h3>
-                <p>Conforto e versatilidade</p>
-                <p class="preco">R$ 39,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
+
+        <div class="produto">
+            <img src="equipamentos/meia2.webp" alt="Meia Cano Médio">
+            <h3>Meia Cano Médio</h3>
+            <p>Conforto e versatilidade</p>
+            <p class="preco">R$ 39,90</p>
+            <button class="btn-comprar">Comprar</button>
         </div>
-    </section>
-    
-    <section id="acessorios">
-        <h2>Acessórios</h2>
-        <div class="produtos-container">
-            <div class="produto">
-                <img src="equipamentos/kit1.webp" alt="Kit Proteção">
-                <h3>Kit Proteção</h3>
-                <p>Proteção máxima</p>
-                <p class="preco">R$ 249,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
-            <div class="produto">
-                <img src="equipamentos/kit2.webp" alt="Caneleira">
-                <h3>Caneleira</h3>
-                <p>Segurança garantida</p>
-                <p class="preco">R$ 59,90</p>
-                <button class="btn-comprar">Comprar</button>
-            </div>
+
+    </div>
+</section>
+
+<!-- ACESSÓRIOS -->
+<section id="acessorios">
+    <h2>Acessórios</h2>
+    <div class="produtos-container">
+
+        <div class="produto">
+            <img src="equipamentos/kit1.webp" alt="Kit Proteção">
+            <h3>Kit Proteção</h3>
+            <p>Proteção máxima</p>
+            <p class="preco">R$ 249,90</p>
+            <button class="btn-comprar">Comprar</button>
         </div>
-    </section>
-    
-    <footer>
-        <p>Futsal Shop &copy; 2023 - Todos os direitos reservados</p>
-        <p><a href="ajuda.html">Central de Ajuda</a></p>
-    </footer>
+
+        <div class="produto">
+            <img src="equipamentos/kit2.webp" alt="Caneleira">
+            <h3>Caneleira</h3>
+            <p>Segurança garantida</p>
+            <p class="preco">R$ 59,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Futsal Shop © 2023 - Todos os direitos reservados</p>
+    <p><a href="ajuda.html">Central de Ajuda</a></p>
+</footer>
+
 </body>
 </html>
